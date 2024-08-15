@@ -1,0 +1,22 @@
+<!-- templates/add_evaluation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Evaluation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Add Evaluation</h1>
+    <form action="{{ url_for('add_evaluation') }}" method="POST">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="evaluation">Evaluation:</label>
+        <textarea id="evaluation" name="evaluation" rows="4" required></textarea>
+        <br>
+        <input type="submit" value="Submit Evaluation">
+    </form>
+</body>
+</html>
