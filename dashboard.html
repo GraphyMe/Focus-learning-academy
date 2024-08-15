@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Student Dashboard</h1>
+
+    <div id="fileExplorer">
+        <h2>Feedbacks</h2>
+        <div id="feedbacks"></div>
+
+        <h2>Assignments</h2>
+        <div id="assignments"></div>
+
+        <h2>Evaluations</h2>
+        <div id="evaluations"></div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const student = params.get('student');
+        const studentData = getStudent(student);
+
+        if (studentData) {
+            document.getElementById('feedbacks').textContent = studentData.feedback || 'No feedback available';
+            document.getElementById('assignments').textContent = studentData.assignments.join(', ') || 'No assignments available';
+            // You can add evaluations in a similar way if you have that data
+        }
+    </script>
+</body>
+</html>

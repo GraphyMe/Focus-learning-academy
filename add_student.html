@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Add Student</h1>
+    <form id="addStudentForm">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <button type="submit">Add Student</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('addStudentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const password = 'Focus2024'; // Default password
+
+            addStudent(name, password);
+            document.getElementById('message').textContent = `Student ${name} added successfully!`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Add Assignment/Homework</title>
+</head>
+<body>
+    <h2>Add Assignment/Homework</h2>
+    <form method="POST" action="/add_assignment">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="assignment">Assignment/Homework:</label>
+        <textarea id="assignment" name="assignment" required></textarea><br><br>
+
+        <input type="submit" value="Add Assignment/Homework">
+    </form>
+</body>
+</html>
