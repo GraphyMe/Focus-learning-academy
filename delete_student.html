@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Delete Student</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h2>Delete Student</h2>
-    <form method="POST" action="/delete_student">
+    <h1>Delete Student</h1>
+    <form id="deleteStudentForm" method="POST"> <!-- Ensure method is POST -->
         <label for="name">Student Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required>
 
-        <input type="submit" value="Delete Student">
+        <button type="submit">Delete Student</button>
     </form>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('deleteStudentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+
+            deleteStudent(name);
+            document.getElementById('message').textContent = `Student ${name} deleted successfully!`;
+        });
+
+        function deleteStudent(name) {
+            const students = JSON.parse(localStorage.getItem('students')) || {};
+            if (students[name]) {
+                delete students[name];
+                localStorage.setItem('students', JSON.stringify(students));
+            }
+        }
+    </script>
 </body>
 </html>
+
